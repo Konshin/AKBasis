@@ -1,0 +1,6 @@
+framework module Pods_AKBasis_Example {
+  umbrella header "Pods-AKBasis_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

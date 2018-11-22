@@ -1,0 +1,6 @@
+framework module AKBasis {
+  umbrella header "AKBasis-umbrella.h"
+
+  export *
+  module * { export * }
+}

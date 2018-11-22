@@ -1,0 +1,16 @@
+PODS:
+  - AKBasis (0.1.0)
+
+DEPENDENCIES:
+  - AKBasis (from `../`)
+
+EXTERNAL SOURCES:
+  AKBasis:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AKBasis: f10ba555043d58c1ad9a748dcb72abc979782fe1
+
+PODFILE CHECKSUM: fadbef681d594866adf69a5e6d1c04355f5c874c
+
+COCOAPODS: 1.5.3
