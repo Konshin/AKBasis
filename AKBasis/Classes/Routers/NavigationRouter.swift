@@ -9,7 +9,7 @@
 import UIKit
 
 /// Стандартный роутер с навигацией
-public class NavigationRouter<T: Assembly>: Router {
+open class NavigationRouter<T: Assembly>: Router {
     
     /// Тип рутового контроллера
     public typealias RootController = UINavigationController

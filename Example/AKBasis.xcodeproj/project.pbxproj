@@ -31,8 +31,8 @@
 		0305E2966348762DADA68834 /* Pods-AKBasis_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKBasis_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AKBasis_Tests/Pods-AKBasis_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1BC56B69A423EE1A2097F6A9 /* Pods_AKBasis_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKBasis_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D2DCCC29EE0AE4EB8456448 /* Pods-AKBasis_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKBasis_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKBasis_Tests/Pods-AKBasis_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		3697D5225886852E6E852987 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		4D04BCC568A1079D73F59292 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		3697D5225886852E6E852987 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		4D04BCC568A1079D73F59292 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* AKBasis_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AKBasis_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		62206C36A2635F26A33FFE77 /* Pods-AKBasis_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKBasis_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKBasis_Example/Pods-AKBasis_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		65D594234B3D7FF104FD5458 /* AKBasis.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = AKBasis.podspec; path = ../AKBasis.podspec; sourceTree = "<group>"; };
+		65D594234B3D7FF104FD5458 /* AKBasis.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AKBasis.podspec; path = ../AKBasis.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7275A6E6BE4A4D372D4C73F6 /* Pods-AKBasis_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKBasis_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-AKBasis_Example/Pods-AKBasis_Example.release.xcconfig"; sourceTree = "<group>"; };
 		FF53B9AD8ED1AFE8625E89EA /* Pods_AKBasis_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKBasis_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
