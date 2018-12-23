@@ -44,7 +44,7 @@ extension AlertPresenter where Self: ViewControllerProtocol {
 
 /// Дефолтный экшен закрытия
 private let closeAction = UIAlertAction(title: Bundle(identifier: "com.apple.UIKit")?
-    .localizedString(forKey: "Cancel",
+    .localizedString(forKey: "Close",
                      value: "",
                      table: nil),
                                         style: .cancel,

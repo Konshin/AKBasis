@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AKBasis'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Base things for projects: Routing, Assembly and other'
 
   s.description      = <<-DESC
