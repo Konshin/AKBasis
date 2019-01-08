@@ -15,25 +15,26 @@ public protocol RemovingScreensRouter {
     /// - Parameters:
     ///   - controller: Контроллер, на который надо перейти
     ///   - animated: Анимационно
-    func returnToController(_ controller: UIViewController, animated: Bool)
-
+    ///   - completion: блок завершения
+    func returnToController(_ controller: UIViewController, animated: Bool, completion: (() -> Void)?)
+    
     /// Убирает все контроллера заданных типов из стека отображаемых контроллеров
     ///
     /// - Parameter types: Список типов для убирания
     func removeControllerTypesFromStack(_ types: [AnyClass])
-
+    
     /// Удаляет контроллер и все контроллеры из стека после него
     ///
     /// - Parameters:
     ///   - controller: Контроллер для удаления
     ///   - animated: Анимационно
     func removeControllerAndAllFollowing(_ controller: UIViewController, animated: Bool)
-
+    
     /// Возвращает стек к рутовому контроллеру
     ///
     /// - Parameter animated: Анимационно
     func returnToRootController(animated: Bool)
-
+    
     /// Удаляет вьюконтроллер из стека навигации, если он там есть
     ///
     /// - Parameters:
@@ -43,12 +44,25 @@ public protocol RemovingScreensRouter {
 }
 
 extension Router where Self: RemovingScreensRouter, RootController: UINavigationController {
-
-    public func returnToController(_ controller: UIViewController, animated: Bool) {
-        rootController.popToViewController(controller, animated: animated)
-        removePresetedComntrollers(animated: animated, completion: nil)
+    
+    public func returnToController(_ controller: UIViewController, animated: Bool, completion: (() -> Void)?) {
+        if rootController.viewControllers.contains(controller) {
+            if rootController.viewControllers.last != controller {
+                CATransaction.begin()
+                CATransaction.setCompletionBlock(completion)
+                rootController.popToViewController(controller, animated: animated)
+                removePresetedComntrollers(animated: animated, completion: nil)
+                CATransaction.commit()
+            } else {
+                removePresetedComntrollers(animated: animated) { _ in
+                    completion?()
+                }
+            }
+        } else {
+            controller.presentedViewController?.dismiss(animated: animated, completion: completion)
+        }
     }
-
+    
     public func removeControllerAndAllFollowing(_ controller: UIViewController, animated: Bool) {
         if let index = rootController.viewControllers.index(of: controller) {
             if index > 0 {
@@ -63,7 +77,7 @@ extension Router where Self: RemovingScreensRouter, RootController: UINavigation
             controller.dismiss(animated: animated, completion: nil)
         }
     }
-
+    
     /// Удаляет вьюконтроллер из стека навигации, если он там есть
     ///
     /// - Parameters:
@@ -76,7 +90,7 @@ extension Router where Self: RemovingScreensRouter, RootController: UINavigation
             rootController.setViewControllers(viewControllers, animated: animated)
         }
     }
-
+    
     /// Возвращает стек к рутовому контроллеру
     ///
     /// - Parameter animated: Анимационно
@@ -84,7 +98,7 @@ extension Router where Self: RemovingScreensRouter, RootController: UINavigation
         rootController.popToRootViewController(animated: animated)
         removePresetedComntrollers(animated: animated, completion: nil)
     }
-
+    
     public func removeControllerTypesFromStack(_ types: [AnyClass]) {
         // Удаляем из презентед
         removePresentedController(fromController: rootController,
@@ -99,9 +113,9 @@ extension Router where Self: RemovingScreensRouter, RootController: UINavigation
             return true
         }
     }
-
+    
     // MARK: - private
-
+    
     /// Убирает показанный модально контроллер, если он есть
     ///
     /// - Parameters:
@@ -113,7 +127,7 @@ extension Router where Self: RemovingScreensRouter, RootController: UINavigation
                                   animated: animated,
                                   completion: completion)
     }
-
+    
     /// Убирает показанный модально контроллер, если он есть и его тип совпадает с заданным
     ///
     /// - Parameters:
@@ -126,22 +140,28 @@ extension Router where Self: RemovingScreensRouter, RootController: UINavigation
                                            animated: Bool,
                                            completion: ((Bool) -> Void)?) {
         if let presented = fromController.presentedViewController {
+            var completion = completion
+            
             if let types = types {
+                var isSuccess = false
                 for type in types where presented.isKind(of: type) {
+                    isSuccess = true
                     presented.dismiss(animated: animated) {
                         completion?(true)
                     }
                 }
                 removePresentedController(fromController: presented,
                                           of: types,
-                                          animated: animated,
-                                          completion: completion)
+                                          animated: animated) { newSuccess in
+                                            completion?(newSuccess || isSuccess)
+                }
             } else {
                 presented.dismiss(animated: animated) {
                     completion?(true)
                 }
             }
+        } else {
+            completion?(false)
         }
-        completion?(false)
     }
 }

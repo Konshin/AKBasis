@@ -32,7 +32,11 @@ extension Router {
     
     /// Отобразить контроллер модально
     public func present(_ vc: UIViewController, animated: Bool, completion: (() -> Void)?) {
-        rootController.present(vc, animated: animated, completion: completion)
+        var controllerToPresent: UIViewController = rootController
+        while let presented = controllerToPresent.presentedViewController {
+            controllerToPresent = presented
+        }
+        controllerToPresent.present(vc, animated: animated, completion: completion)
     }
     
 }
