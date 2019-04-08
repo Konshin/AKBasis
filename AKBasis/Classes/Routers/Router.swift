@@ -21,9 +21,6 @@ public protocol Router {
     /// сборщик
     var assembler: Assembler { get }
     
-    /// Убирает все открытые экраны
-    func clear()
-    
     /// Открыть контроллер
     func routeTo(_ vc: UIViewController, animated: Bool, completion: (() -> Void)?)
 }
@@ -41,11 +38,7 @@ extension Router {
     
 }
 
-extension Router where RootController: UINavigationController {
-    
-    public func clear() {
-        rootController.viewControllers = []
-    }
+extension Router where Self.RootController == UINavigationController {
     
     /// Открыть контроллер
     public func routeTo(_ vc: UIViewController, animated: Bool, completion: (() -> Void)?) {

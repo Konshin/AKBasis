@@ -64,7 +64,7 @@ extension Router where Self: RemovingScreensRouter, RootController: UINavigation
     }
     
     public func removeControllerAndAllFollowing(_ controller: UIViewController, animated: Bool) {
-        if let index = rootController.viewControllers.index(of: controller) {
+        if let index = rootController.viewControllers.firstIndex(of: controller) {
             if index > 0 {
                 // Возвращаем до предыдущего контроллера
                 rootController.popToViewController(rootController.viewControllers[index-1],
@@ -84,7 +84,7 @@ extension Router where Self: RemovingScreensRouter, RootController: UINavigation
     ///   - controller: Контроллер для убирания
     ///   - animated: Анимационно?
     public func removeController(_ controller: UIViewController, animated: Bool) {
-        if let index = rootController.viewControllers.index(of: controller) {
+        if let index = rootController.viewControllers.firstIndex(of: controller) {
             var viewControllers = rootController.viewControllers
             viewControllers.remove(at: index)
             rootController.setViewControllers(viewControllers, animated: animated)
@@ -140,7 +140,7 @@ extension Router where Self: RemovingScreensRouter, RootController: UINavigation
                                            animated: Bool,
                                            completion: ((Bool) -> Void)?) {
         if let presented = fromController.presentedViewController {
-            var completion = completion
+            let completion = completion
             
             if let types = types {
                 var isSuccess = false

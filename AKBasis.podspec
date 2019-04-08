@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AKBasis'
-  s.version          = '0.1.3'
+  s.version          = '0.2.0'
   s.summary          = 'Base things for projects: Routing, Assembly and other'
 
   s.description      = <<-DESC
@@ -23,7 +23,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'AKBasis/Classes/**/*'
-  s.swift_version = '4.2'
+  s.swift_version = '5.0'
 
   s.dependency 'SnapKit', '~> 4.0'
 end
