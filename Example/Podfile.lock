@@ -1,13 +1,13 @@
 PODS:
-  - AKBasis (0.1.0):
-    - SnapKit (~> 4.0)
-  - SnapKit (4.2.0)
+  - AKBasis (0.3.0):
+    - SnapKit (~> 5.0)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - AKBasis (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - SnapKit
 
 EXTERNAL SOURCES:
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AKBasis: 84182ad9cbd023e212743b80bff70f4af809217a
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  AKBasis: 58f969ee85f4414bfdf81558dc999c1fcbf03f33
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
 PODFILE CHECKSUM: fadbef681d594866adf69a5e6d1c04355f5c874c
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4
